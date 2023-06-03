@@ -1,4 +1,5 @@
-
+import { Button } from 'antd';
+import 'antd/dist/reset.css';
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
         <img className="App-logo" alt="logo" />
         <p>
           <code>Hello.</code> 
+          <Button type="primary">Button</Button>
         </p>
       </header>
     </div>
