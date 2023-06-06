@@ -26,6 +26,9 @@ const App = () => {
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
         <Menu
+          style={{
+            marginTop: "100px"
+          }}
           theme="dark"
           mode="inline"
           defaultSelectedKeys={['1']}
