@@ -22,7 +22,7 @@ const App = () => {
 
 
   return (
-    <Layout>
+    <Layout style={{height: '100vh'}}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
         <Menu
@@ -65,6 +65,7 @@ const App = () => {
               height: 64,
             }}
           />
+          Title
         </Header>
         <Content
           style={{
