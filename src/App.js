@@ -1,11 +1,9 @@
 import 'antd/dist/reset.css';
 import './App.css';
 import {
+  ReadOutlined,
   MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
+  MenuUnfoldOutlined
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 import { useState } from 'react';
@@ -22,6 +20,7 @@ const App = () => {
     token: { colorBgContainer },
   } = theme.useToken();
 
+
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -33,18 +32,18 @@ const App = () => {
           items={[
             {
               key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
+              icon: <ReadOutlined />,
+              label: 'Part One',
             },
             {
               key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
+              icon: <ReadOutlined />,
+              label: 'Part Two',
             },
             {
               key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
+              icon: <ReadOutlined />,
+              label: 'Part Three',
             },
           ]}
         />
