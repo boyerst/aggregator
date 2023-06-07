@@ -8,5 +8,5 @@ export const links = [
     label: "part 2",
     rumble: ,
     substack: 
-  },
+  }
 ];
