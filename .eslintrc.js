@@ -35,7 +35,7 @@ module.exports = {
     "react/jsx-wrap-multilines": "off",
     "react/prop-types": 0,
     "react/jsx-props-no-spreading": 0,
-    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "react/function-component-definition": [2, { "namedComponents": "function-declaration" }],
     "react/jsx-no-bind": [0, { "allowBind": true }]
 
   },
