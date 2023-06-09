@@ -1,17 +1,22 @@
 export const data = [
   {
     // name used as 'key' in App.js Menu items
-    name: "",
+    name: "PartOne",
     // label used as 'label' in App.js Menu items
-    label: "part 1",
+    label: "Part One",
     // used in Parts.js
-    rumble: ,
+    rumble: "reactrouter.com",
     // used in Parts.js
-    substack: 
+    substack: "reactrouter.com" 
   },
   {
-    label: "part 2",
-    rumble: ,
-    substack: 
+    // name used as 'key' in App.js Menu items
+    name: "PartTwo",
+    // label used as 'label' in App.js Menu items
+    label: "Part Two",
+    // used in Parts.js
+    rumble: "reactrouter.com",
+    // used in Parts.js
+    substack: "reactrouter.com" 
   }
 ];

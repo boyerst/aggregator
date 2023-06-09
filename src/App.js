@@ -16,6 +16,7 @@ import {
 import { Button, Layout, Menu, theme } from "antd"
 import { React, useState } from "react"
 import Parts from "./pages/Parts"
+import { data } from "./config/data"
 
 const { Header, Sider, Content } = Layout;
 
@@ -38,6 +39,7 @@ function Root() {
 
   const navigate = useNavigate()
 
+  console.log("data :", data)
 
 
   return (
