@@ -46,7 +46,7 @@ function Root() {
     <Layout style={{ height: "100vh" }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
-        <Menu
+{/*       <Menu
           style={{
             marginTop: "100px"
           }}
@@ -74,6 +74,33 @@ function Root() {
             },
           ]}
         />
+*/}
+
+        {data.map((part) => (
+            
+          <Menu
+            key={part.name}
+            style={{
+              marginTop: "100px"
+            }}
+            theme="dark"
+            mode="inline"
+            // defaultSelectedKeys={["1"]}
+            onClick={({ key }) => {
+              navigate(`/${key}`)
+            }}
+            items={[
+              {
+                key: part.name,
+                icon: <ReadOutlined />,
+                label: part.label,
+              }
+            ]}
+          />
+        ))} 
+
+
+
       </Sider>
       <Layout>
         <Header
