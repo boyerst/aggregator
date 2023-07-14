@@ -18,5 +18,15 @@ export const data = [
     rumble: "reactrouter.com",
     // used in Parts.js
     substack: "reactrouter.com" 
+  },
+  {
+    // name used as 'key' in App.js Menu items
+    name: "PartThree",
+    // label used as 'label' in App.js Menu items
+    label: "Part Three",
+    // used in Parts.js
+    rumble: "reactrouter.com",
+    // used in Parts.js
+    substack: "reactrouter.com" 
   }
 ];

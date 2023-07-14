@@ -40,19 +40,26 @@ function Root() {
   const navigate = useNavigate()
 
   console.log("data :", data)
+  console.log(data[0])
+  console.log(location.pathname)
+
 
 
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-{/*       <Menu
+        {/*<div className="demo-logo-vertical" />*/}
+
+{/*Hardcoded menu - selected working*/}
+         <Menu
           style={{
             marginTop: "100px"
           }}
           theme="dark"
+
           mode="inline"
-          // defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["parts"]}
+
           onClick={({ key }) => {
             navigate(`/${key}`)
           }}
@@ -74,18 +81,43 @@ function Root() {
             },
           ]}
         />
-*/}
 
+
+
+{/*Custom Menu*/}
+
+     
         {data.map((part) => (
-            
           <Menu
-            key={part.name}
-            style={{
-              marginTop: "100px"
-            }}
+            // key={part.name}
+            selectedKeys={[location.pathname]}
             theme="dark"
             mode="inline"
-            // defaultSelectedKeys={["1"]}
+            // selectable
+            // defaultSelectedKeys={["/"]}
+            // defaultSelectedKeys={[location.pathname]}
+            onClick={({ key }) => {
+              navigate(`/${key}`)
+            }}
+          >
+            <Menu.Item key={part.name}>
+              <ReadOutlined />
+              {part.label}
+            </Menu.Item>
+          </Menu>
+        ))}
+       
+
+{/*Menu with loop - selected not working*/}
+        {data.map((part) => (
+          <Menu
+            key={part.name}
+            selectedKeys={[location.pathname]}
+            theme="dark"
+            mode="inline"
+            selectable
+            defaultSelectedKeys={["/"]}
+            // defaultSelectedKeys={[location.pathname]}
             onClick={({ key }) => {
               navigate(`/${key}`)
             }}
@@ -97,11 +129,14 @@ function Root() {
               }
             ]}
           />
-        ))} 
+        ))}
 
 
 
       </Sider>
+
+
+
       <Layout>
         <Header
           style={{
