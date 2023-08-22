@@ -3,6 +3,7 @@ import "./App.css"
 import {
   createBrowserRouter,
   Link,
+  Outlet,
   Route,
   RouterProvider,
   useNavigate,
@@ -91,6 +92,7 @@ function Root() {
           <Menu
             // key={part.name}
             selectedKeys={[location.pathname]}
+            selectedKeys="ant menu item active"
             theme="dark"
             mode="inline"
             // selectable
@@ -112,12 +114,13 @@ function Root() {
         {data.map((part) => (
           <Menu
             key={part.name}
-            selectedKeys={[location.pathname]}
+            // selectedKeys={[location.pathname]}
             theme="dark"
             mode="inline"
-            selectable
-            defaultSelectedKeys={["/"]}
+            // selectable
+            // defaultSelectedKeys={["/"]}
             // defaultSelectedKeys={[location.pathname]}
+            selectedKeys={[location.pathname]}
             onClick={({ key }) => {
               navigate(`/${key}`)
             }}
@@ -165,9 +168,11 @@ function Root() {
           }}
         >
           Content
-          <Routes>
+          <Outlet />
+{/*          <Routes>
             <Route path="/parts" element={<Parts />} />
-          </Routes>
+
+          </Routes>*/}
         </Content>
       </Layout>
     </Layout>
