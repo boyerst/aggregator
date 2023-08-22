@@ -30,6 +30,24 @@ export default function App() {
 }
 
 
+
+function SeriesList() {
+  return (
+    <ul>
+      {Object.entries(seriesParts).map(([slug, { title }]) => (
+        <li key={slug}>
+          <Link>
+            <h3>SeriesList</h3>
+            <h3>{title}</h3>
+          </Link>
+          
+        </li>                                                             
+      ))}
+    </ul>
+  )
+}
+
+
 function Root() {
 
   const [collapsed, setCollapsed] = useState(false);
@@ -41,7 +59,7 @@ function Root() {
   const navigate = useNavigate()
 
   console.log("seriesParts :", seriesParts)
-  console.log(seriesParts[0])
+  // console.log(seriesParts[0])
   console.log(location.pathname)
 
 
@@ -169,10 +187,14 @@ function Root() {
         >
           Content
           <Outlet />
-{/*          <Routes>
+          <Routes>
+            <Route path="/parts" >
+            
+              <Route index element={<SeriesList />} />
+            </Route>
             <Route path="/parts" element={<Parts />} />
 
-          </Routes>*/}
+          </Routes>
         </Content>
       </Layout>
     </Layout>
