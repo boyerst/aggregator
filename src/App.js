@@ -17,7 +17,7 @@ import {
 import { Button, Layout, Menu, theme } from "antd"
 import { React, useState } from "react"
 import Parts from "./pages/Parts"
-import { data } from "./config/data"
+import { seriesParts } from "./config/data"
 
 const { Header, Sider, Content } = Layout;
 
@@ -40,8 +40,8 @@ function Root() {
 
   const navigate = useNavigate()
 
-  console.log("data :", data)
-  console.log(data[0])
+  console.log("seriesParts :", seriesParts)
+  console.log(seriesParts[0])
   console.log(location.pathname)
 
 
@@ -88,7 +88,7 @@ function Root() {
 {/*Custom Menu*/}
 
      
-        {data.map((part) => (
+{/*        {seriesParts.map((part) => (
           <Menu
             // key={part.name}
             selectedKeys={[location.pathname]}
@@ -107,11 +107,11 @@ function Root() {
               {part.label}
             </Menu.Item>
           </Menu>
-        ))}
+        ))}*/}
        
 
 {/*Menu with loop - selected not working*/}
-        {data.map((part) => (
+{/*        {seriesParts.map((part) => (
           <Menu
             key={part.name}
             // selectedKeys={[location.pathname]}
@@ -132,7 +132,7 @@ function Root() {
               }
             ]}
           />
-        ))}
+        ))}*/}
 
 
 

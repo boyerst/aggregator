@@ -1,22 +1,21 @@
-export const SeriesParts = {
-  {
-    // ❓used as 'key' in App.js Menu items
-    'part-one': {
-      title: 'Part One',
+export const seriesParts = {
+    // used as 'key' in App.js Menu items
+    "part-one": {
+      title: "Part One",
       // used in Parts.js
       rumble: "reactrouter.com",
       // used in Parts.js
-      substack: "reactrouter.com" 
+      substack: "reactrouter.com"
     },
-    'part-two': {
-      title: 'Part Two',
+    "part-two": {
+      title: "Part Two",
       rumble: "reactrouter.com",
-      substack: "reactrouter.com" 
+      substack: "reactrouter.com"
     },
-    'part-three': {
-      title: 'Part Three',
+    "part-three": {
+      title: "Part Three",
       rumble: "reactrouter.com",
-      substack: "reactrouter.com" 
+      substack: "reactrouter.com"
     },
 };
 
