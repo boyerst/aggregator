@@ -176,7 +176,8 @@ function Root() {
             
               <Route index element={<SeriesList />} />
             </Route>
-            <Route path="/parts" element={<Parts />} />
+            <Route path=":slug" element={<Parts />} />
+            {/*<Route path="/parts" element={<Parts />} />*/}
 
           </Routes>
         </Content>
