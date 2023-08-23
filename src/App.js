@@ -31,14 +31,18 @@ export default function App() {
 
 
 
+
+
+
 function SeriesList() {
   return (
     <ul>
-      {Object.entries(seriesParts).map(([slug, { title }]) => (
+      {Object.entries(seriesParts).map(([slug, { title, rumble }]) => (
         <li key={slug}>
           <Link>
             <h3>SeriesList</h3>
             <h3>{title}</h3>
+            <h3>{rumble}</h3>
           </Link>
           
         </li>                                                             
@@ -105,33 +109,13 @@ function Root() {
 
 {/*Custom Menu*/}
 
-     
-{/*        {seriesParts.map((part) => (
-          <Menu
-            // key={part.name}
-            selectedKeys={[location.pathname]}
-            selectedKeys="ant menu item active"
-            theme="dark"
-            mode="inline"
-            // selectable
-            // defaultSelectedKeys={["/"]}
-            // defaultSelectedKeys={[location.pathname]}
-            onClick={({ key }) => {
-              navigate(`/${key}`)
-            }}
-          >
-            <Menu.Item key={part.name}>
-              <ReadOutlined />
-              {part.label}
-            </Menu.Item>
-          </Menu>
-        ))}*/}
+    
        
 
 {/*Menu with loop - selected not working*/}
-{/*        {seriesParts.map((part) => (
+        {Object.entries(seriesParts).map(([slug, { title }]) => (
           <Menu
-            key={part.name}
+            key={slug}
             // selectedKeys={[location.pathname]}
             theme="dark"
             mode="inline"
@@ -140,17 +124,17 @@ function Root() {
             // defaultSelectedKeys={[location.pathname]}
             selectedKeys={[location.pathname]}
             onClick={({ key }) => {
-              navigate(`/${key}`)
+              navigate(`/${slug}`)
             }}
             items={[
               {
-                key: part.name,
+                key: title,
                 icon: <ReadOutlined />,
-                label: part.label,
+                label: title,
               }
             ]}
           />
-        ))}*/}
+        ))}
 
 
 
