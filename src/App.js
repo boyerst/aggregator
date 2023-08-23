@@ -33,7 +33,6 @@ export default function App() {
 
 
 
-
 function SeriesList() {
   return (
     <ul>
@@ -67,6 +66,8 @@ function Root() {
   console.log(location.pathname)
 
 
+  const [selectKey, setSelectKey] = useState("Part One")
+
 
   return (
     <Layout style={{ height: "100vh" }}>
@@ -74,7 +75,7 @@ function Root() {
         {/*<div className="demo-logo-vertical" />*/}
 
 {/*Hardcoded menu - selected working*/}
-         <Menu
+{/*         <Menu
           style={{
             marginTop: "100px"
           }}
@@ -104,40 +105,40 @@ function Root() {
             },
           ]}
         />
+*/}
 
 
-
-{/*Custom Menu*/}
-
-    
        
+          <div style={{ marginTop: "100px"}}>
 
-{/*Menu with loop - selected not working*/}
-        {Object.entries(seriesParts).map(([slug, { title }]) => (
-          <Menu
-            key={slug}
-            // selectedKeys={[location.pathname]}
-            theme="dark"
-            mode="inline"
-            // selectable
-            // defaultSelectedKeys={["/"]}
-            // defaultSelectedKeys={[location.pathname]}
-            selectedKeys={[location.pathname]}
-            onClick={({ key }) => {
-              navigate(`/${slug}`)
-            }}
-            items={[
-              {
-                key: title,
-                icon: <ReadOutlined />,
-                label: title,
-              }
-            ]}
-          />
-        ))}
-
-
-
+            {Object.entries(seriesParts).map(([slug, { title }]) => (
+              <Menu 
+      
+                key={slug}
+                // selectedKeys={[location.pathname]}
+                theme="dark"
+                mode="inline"
+                
+                // selectable
+                // defaultSelectedKeys={["Part One"]}
+                // defaultSelectedKeys={[location.pathname]}
+                selectedKeys={[selectKey]}
+             
+                // selectedKeys={[location.pathname]}
+                onClick={({ key }) => {
+                  navigate(`/${slug}`)
+                  setSelectKey(key)
+                }}
+                items={[
+                  {
+                    key: title,
+                    icon: <ReadOutlined />,
+                    label: title,
+                  }
+                ]}
+              />
+            ))}
+          </div>
       </Sider>
 
 
