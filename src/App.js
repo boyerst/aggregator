@@ -33,23 +33,6 @@ export default function App() {
 
 
 
-function SeriesList() {
-  return (
-    <ul>
-      {Object.entries(seriesParts).map(([slug, { title, rumble }]) => (
-        <li key={slug}>
-          <Link>
-            <h3>SeriesList</h3>
-            <h3>{title}</h3>
-            <h3>{rumble}</h3>
-          </Link>
-          
-        </li>                                                             
-      ))}
-    </ul>
-  )
-}
-
 
 function Root() {
 
@@ -62,8 +45,7 @@ function Root() {
   const navigate = useNavigate()
 
   console.log("seriesParts :", seriesParts)
-  // console.log(seriesParts[0])
-  console.log(location.pathname)
+
 
 
   const [selectKey, setSelectKey] = useState("Part One")
@@ -73,76 +55,29 @@ function Root() {
     <Layout style={{ height: "100vh" }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         {/*<div className="demo-logo-vertical" />*/}
+        <div style={{ marginTop: "100px"}}>
 
-{/*Hardcoded menu - selected working*/}
-{/*         <Menu
-          style={{
-            marginTop: "100px"
-          }}
-          theme="dark"
-
-          mode="inline"
-          defaultSelectedKeys={["parts"]}
-
-          onClick={({ key }) => {
-            navigate(`/${key}`)
-          }}
-          items={[
-            {
-              key: "parts",
-              icon: <ReadOutlined />,
-              label: "Part One",
-            },
-            {
-              key: "part2",
-              icon: <ReadOutlined />,
-              label: "Part Two",
-            },
-            {
-              key: "part3",
-              icon: <ReadOutlined />,
-              label: "Part Three",
-            },
-          ]}
-        />
-*/}
-
-
-       
-          <div style={{ marginTop: "100px"}}>
-
-            {Object.entries(seriesParts).map(([slug, { title }]) => (
-              <Menu 
-      
-                key={slug}
-                // selectedKeys={[location.pathname]}
-                theme="dark"
-                mode="inline"
-                
-                // selectable
-                // defaultSelectedKeys={["Part One"]}
-                // defaultSelectedKeys={[location.pathname]}
-                selectedKeys={[selectKey]}
-             
-                // selectedKeys={[location.pathname]}
-                onClick={({ key }) => {
-                  navigate(`/${slug}`)
-                  setSelectKey(key)
-                }}
-                items={[
-                  {
-                    key: title,
-                    icon: <ReadOutlined />,
-                    label: title,
-                  }
-                ]}
-              />
-            ))}
-          </div>
+          {Object.entries(seriesParts).map(([slug, { title }]) => (
+            <Menu
+              key={slug}
+              theme="dark"
+              mode="inline"
+              selectedKeys={[selectKey]}
+              onClick={({ key }) => {
+                navigate(`/${slug}`)
+                setSelectKey(key)
+              }}
+              items={[
+                {
+                  key: title,
+                  icon: <ReadOutlined />,
+                  label: title,
+                }
+              ]}
+            />
+          ))}
+        </div>
       </Sider>
-
-
-
       <Layout>
         <Header
           style={{
@@ -170,16 +105,9 @@ function Root() {
             background: colorBgContainer,
           }}
         >
-          Content
           <Outlet />
           <Routes>
-            <Route path="/parts" >
-            
-              <Route index element={<SeriesList />} />
-            </Route>
             <Route path=":slug" element={<Parts />} />
-            {/*<Route path="/parts" element={<Parts />} />*/}
-
           </Routes>
         </Content>
       </Layout>
