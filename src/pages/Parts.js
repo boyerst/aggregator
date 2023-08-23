@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import "antd/dist/reset.css"
 import "../App.css"
 import { seriesParts } from "../config/data.js"
+import Iframe from 'react-iframe'
 
 
 function Parts() {
@@ -19,10 +20,8 @@ function Parts() {
 
   return (
     <div>
-      <p>Parts Component</p>
       <h3>{title}</h3>
-
-
+      <Iframe class="rumble" width="640" height="360" src={rumble} frameborder="0" allowfullscreen />  
     </div>
   )
 }

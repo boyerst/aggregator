@@ -3,7 +3,7 @@ export const seriesParts = {
     "part-one": {
       title: "Part One",
       // used in Parts.js
-      rumble: "reactrouter.com",
+      rumble: "https://rumble.com/embed/vsk5rv/?pub=4&start=5338",
       // used in Parts.js
       substack: "reactrouter.com"
     },
@@ -21,39 +21,5 @@ export const seriesParts = {
 
 
 
-
-
-// export const data = [
-//   {
-//     // name used as 'key' in App.js Menu items
-//     name: "PartOne",
-//     // label used as 'label' in App.js Menu items
-//     label: "Part One",
-//     // used in Parts.js
-//     rumble: "reactrouter.com",
-//     // used in Parts.js
-//     substack: "reactrouter.com" 
-//   },
-//   {
-//     // name used as 'key' in App.js Menu items
-//     name: "PartTwo",
-//     // label used as 'label' in App.js Menu items
-//     label: "Part Two",
-//     // used in Parts.js
-//     rumble: "reactrouter.com",
-//     // used in Parts.js
-//     substack: "reactrouter.com" 
-//   },
-//   {
-//     // name used as 'key' in App.js Menu items
-//     name: "PartThree",
-//     // label used as 'label' in App.js Menu items
-//     label: "Part Three",
-//     // used in Parts.js
-//     rumble: "reactrouter.com",
-//     // used in Parts.js
-//     substack: "reactrouter.com" 
-//   }
-// ];
 
 
