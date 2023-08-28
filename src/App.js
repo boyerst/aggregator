@@ -31,6 +31,87 @@ export default function App() {
 
 
 
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+
+
+// const items = [
+//   {label: 'Navigation 1', key: 'item-1'}, [
+//     (Object.entries(seriesParts).map(([slug, { title }]) => (
+//       {label: title, key: slug}
+//     ))),
+//   ]
+// ]
+
+// const items = [
+//   getItem('Navigation 1', 'sub1', <ReadOutlined />), [
+//     getItem((Object.entries(seriesParts).map(([slug, { title }]) => (
+//       'title', 'slug'
+//     )))),
+//   ]
+// ]
+
+
+// const items = [
+//   getItem('Navigation 1', 'sub1', <ReadOutlined />, [
+//     (Object.entries(seriesParts).map(([slug, { title }]) => (
+//       getItem(title, slug, <ReadOutlined />)
+      
+//     )))
+//   ])
+// ]
+
+// const items = [
+//   getItem('Navigation 1', 'sub1', <ReadOutlined />, [
+//     (Object.entries(seriesParts).map(([slug, { title }]) => (
+//       getItem(title, slug, <ReadOutlined />)
+//     )))
+//   ])
+// ]
+
+// An array of object that contains 3 arrays?
+const items = [
+  getItem('Navigation 1', 'sub1', <ReadOutlined />, 
+    (Object.entries(seriesParts).map(([slug, { title }]) => ([
+      getItem(title, slug, <ReadOutlined />),
+      // getItem(label, key, icon)
+    ])
+    )))
+]
+
+
+// const slug = Object.entries(seriesParts).map(([slug, {title}]) => {
+//     console.log("title: ", title) 
+//     console.log("slug: ", slug)
+
+//   })
+
+
+// const items = [
+//   getItem('Navigation 1', 'sub1', <ReadOutlined />, [
+//       getItem('Option 1', '1'),
+//       getItem('Option 2', '2')
+//   ])
+// ]
+
+
+
+// function series() {
+//   Object.entries(seriesParts).map(([slug, {title}]) => {
+//     console.log("title: ", title) 
+//     console.log("slug: ", slug)
+
+//   })
+// }
+
+// series()
 
 
 
@@ -50,45 +131,43 @@ function Root() {
 
   const [selectKey, setSelectKey] = useState("Part One")
 
+  // const slug = Object.entries(seriesParts).map(([slug]) => {
+  //     console.log("slug: ", slug)
+  //   })
 
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         {/*<div className="demo-logo-vertical" />*/}
         <div style={{ marginTop: "100px" }}>
-    
+   
+         {/*{Object.entries(seriesParts).map(([slug, { title }]) => (*/}
           <Menu
            theme="dark"
            mode="inline"
-          >
-        
-            <Menu.SubMenu title="Not Since 1917">
-            
-              {Object.entries(seriesParts).map(([slug, { title }]) => (
-                <Menu.Item
-                  key={slug}
-                  // theme="dark"
-                  // mode="inline"
-                  // style={{ color: "white" }}
-                  selectedKeys={[selectKey]}
-                  onClick={({ key }) => {
-                    navigate(`/${slug}`)
-                    setSelectKey(key)
-                  }}
-                  items={[
-                    {
-                      key: title,
-                      icon: <ReadOutlined />,
-                      label: title,
-                    }
-                  ]}
-                />
-              ))}
-            </Menu.SubMenu>
-          </Menu>
-    
-        </div>
+          
+         
+            // key={getItem()}
+            theme="dark"
+            mode="inline"
+            // inlineCollapsed={collapsed}
+            selectedKeys={[selectKey]}
+            onClick={({ slug }) => {
+      
+              // console.log("Clicked", key)
+              console.log("Items: ", items)
+              console.log("Items[0]: ", items[0])
+              navigate(`/${slug}`)
+              setSelectKey(key)
 
+            }}
+            items={items}
+    
+            />
+          {/*))}*/}
+      
+
+        </div>
 
 
       </Sider>
