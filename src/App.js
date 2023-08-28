@@ -14,7 +14,7 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined
 } from "@ant-design/icons"
-import { Button, Layout, Menu, theme } from "antd"
+import { Button, Layout, Menu, Dropdown, theme } from "antd"
 import { React, useState } from "react"
 import Parts from "./pages/Parts"
 import { seriesParts } from "./config/data"
@@ -58,9 +58,9 @@ function Root() {
         <div style={{ marginTop: "100px"}}>
 
           {Object.entries(seriesParts).map(([slug, { title }]) => (
-            <Menu
+            <Dropdown
               key={slug}
-              theme="dark"
+              // theme="dark"
               mode="inline"
               selectedKeys={[selectKey]}
               onClick={({ key }) => {
