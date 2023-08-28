@@ -42,6 +42,13 @@ function getItem(label, key, icon, children, type) {
 }
 
 
+function getSlug(slug) {
+  console.log("SLUG: ", slug)
+  return {
+    slug
+  }
+}
+
 // const items = [
 //   {label: 'Navigation 1', key: 'item-1'}, [
 //     (Object.entries(seriesParts).map(([slug, { title }]) => (
@@ -77,9 +84,19 @@ function getItem(label, key, icon, children, type) {
 // ]
 
 // An array of object that contains 3 arrays?
+// const items = [
+//   getItem('Navigation 1', 'sub1', <ReadOutlined />, 
+//     (Object.entries(seriesParts).map(([slug, { title }]) => ([
+//       getItem(title, slug, <ReadOutlined />),
+//       // getItem(label, key, icon)
+//     ])
+//     )))
+// ]
+
+
 const items = [
   getItem('Navigation 1', 'sub1', <ReadOutlined />, 
-    (Object.entries(seriesParts).map(([slug, { title }]) => ([
+    (Object.entries(seriesParts).map(({ title }) => ([
       getItem(title, slug, <ReadOutlined />),
       // getItem(label, key, icon)
     ])
@@ -131,6 +148,21 @@ function Root() {
 
   const [selectKey, setSelectKey] = useState("Part One")
 
+  // const slug =
+  //   Object.entries(seriesParts).map(([slug]) => (
+  //       getSlug(slug)))
+
+
+const { slug } = items[0].children
+
+
+  // const url = seriesParts[slug]
+
+
+  // const { title } = url
+
+  // console.log(url)
+
   // const slug = Object.entries(seriesParts).map(([slug]) => {
   //     console.log("slug: ", slug)
   //   })
@@ -147,17 +179,25 @@ function Root() {
            mode="inline"
           
          
-            // key={getItem()}
+            // key={slug}
             theme="dark"
             mode="inline"
             // inlineCollapsed={collapsed}
             selectedKeys={[selectKey]}
-            onClick={({ slug }) => {
+            // onTitleClick={({key}) => (
+            //   console.log("TITLE CLICKED")
+                
+            // )
+            // }
+            onClick={( ) => {
       
               // console.log("Clicked", key)
+              console.log("SLUGGGGG:", slug)
               console.log("Items: ", items)
               console.log("Items[0]: ", items[0])
-              navigate(`/${slug}`)
+              console.log("🟢: ", items[0].children)
+              // navigate(`/${items.title}`)
+              navigate({slug})
               setSelectKey(key)
 
             }}
@@ -200,7 +240,7 @@ function Root() {
         >
           <Outlet />
           <Routes>
-            <Route path=":slug" element={<Parts />} />
+            {/*<Route path=":slug" element={<Parts />} />*/}
           </Routes>
         </Content>
       </Layout>
